@@ -1,38 +1,247 @@
-.App {
-  text-align: center;
+/* 🎨 Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+  color: #e6e6e6;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* 🔝 Header */
+header {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: white;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 198, 255, 0.4);
 }
 
-.App-link {
-  color: #61dafb;
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px rgba(0, 198, 255, 0.9);
 }
 
-@keyframes App-logo-spin {
+/* 📦 Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* 🛍️ Título de productos futurista */
+.products-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #00e6ff; /* 🔵 mismo color en todo el diseño */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 0.8),
+               0 0 20px rgba(0, 198, 255, 0.6);
+  animation: glowPulse 3s infinite alternate;
+}
+
+/* ✨ Línea decorativa debajo */
+.products-title::after {
+  content: "";
+  display: block;
+  margin: 10px auto 0;
+  width: 80px;
+  height: 3px;
+  border-radius: 2px;
+  background: #00e6ff;
+  box-shadow: 0 0 12px rgba(0, 230, 255, 0.9);
+}
+
+/* 🔥 Animación glow */
+@keyframes glowPulse {
   from {
-    transform: rotate(0deg);
+    text-shadow: 0 0 8px rgba(0, 230, 255, 0.6),
+                 0 0 14px rgba(0, 198, 255, 0.4);
   }
   to {
-    transform: rotate(360deg);
+    text-shadow: 0 0 14px rgba(0, 242, 254, 1),
+                 0 0 26px rgba(0, 198, 255, 0.8);
   }
+}
+
+/* 🛒 Grid de productos */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* 🏷️ Tarjeta de producto */
+.card {
+  background: rgba(20, 20, 35, 0.95);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 198, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 25px rgba(0, 198, 255, 0.4);
+}
+
+.card-media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.card-body {
+  padding: 18px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #00d4ff;
+  text-shadow: 0 0 6px rgba(0, 212, 255, 0.6);
+}
+
+.card-body .desc {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  min-height: 38px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ff9f43;
+  text-shadow: 0 0 6px rgba(255, 159, 67, 0.6);
+}
+
+.stock {
+  font-size: 0.9rem;
+  color: #1dd1a1;
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(29, 209, 161, 0.6);
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 🎯 Botones */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(0, 198, 255, 0.6);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 20px rgba(67, 233, 123, 0.8);
+}
+
+/* 🛒 Carrito flotante */
+.cart {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 360px;
+  max-height: 70vh;
+  background: rgba(15, 25, 35, 0.98);
+  border-radius: 16px 16px 0 0;
+  border: 1px solid rgba(0, 198, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 198, 255, 0.4);
+  padding: 1rem;
+  overflow-y: auto;
+  animation: slideUp 0.4s ease;
+  color: #eee;
+}
+
+/* ⚡ Modal futurista */
+.modal {
+  background: rgba(20, 30, 50, 0.95);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0, 198, 255, 0.5);
+  width: 420px;
+  max-width: 95%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 0.35s ease;
+  border: 1px solid rgba(0, 198, 255, 0.25);
+}
+
+.modal h2 {
+  margin-bottom: 1rem;
+  color: #00e6ff;
+  font-size: 1.6rem;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 230, 255, 0.8);
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 198, 255, 0.4);
+  outline: none;
+  background: rgba(15, 25, 35, 0.9);
+  color: #eee;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: #00f2fe;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.6);
+}
+
+/* ❌ Error */
+.error-msg {
+  color: #ff4d6d;
+  background: rgba(255, 77, 109, 0.1);
+  border: 1px solid rgba(255, 77, 109, 0.4);
+  padding: 0.6rem;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 4px rgba(255, 77, 109, 0.7);
 }
