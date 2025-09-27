@@ -9,11 +9,10 @@ app.use(express.json());
 // Conexión MySQL
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '',
+    user: 'junior',
+    password: 'Senati2025#',   
     database: 'init_db'
 });
-
 db.connect(err => {
     if (err) {
         console.error('❌ Error conectando a MySQL:', err);
